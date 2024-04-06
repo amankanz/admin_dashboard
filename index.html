@@ -5,22 +5,126 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard</title>
 
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style/style.css" />
   </head>
   <body class="grid-conatine">
     <!-- Header -->
-    <header></header>
+    <header>
+      <div class="menu-icon" onclick="open_sidebar()">
+        <span class="material-symbols-outlined"> menu </span>
+      </div>
+      <div class="header-left">
+        <span class="material-symbols-outlined"> today </span>
+      </div>
+      <div class="header-middle">
+        <span class="material-symbols-outlined"> search </span>
+      </div>
+      <div class="header-right">
+        <span class="material-symbols-outlined"> notifications </span>
+        <span class="material-symbols-outlined"> mail </span>
+        <span class="material-symbols-outlined"> person </span>
+      </div>
+    </header>
     <!-- Header End -->
 
     <!-- Sidebar -->
-    <aside id="sidebar"></aside>
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-symbols-outlined"> computer </span> softcodes
+        </div>
+        <span class="material-symbols-outlined" onclick="close_sidebar()">
+          close
+        </span>
+      </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> grid_view </span> Dashboard
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> sms </span> Messages
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> data_usage </span> AppData
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> add_shopping_cart </span>
+          Orders
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> partner_exchange </span>
+          Appointment
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> settings </span>
+          Settings
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-symbols-outlined"> logout </span> Logout
+        </li>
+      </ul>
+    </aside>
     <!-- Sidebar End -->
 
     <!-- Main -->
-    <main class="main-container"></main>
+    <main class="main-container">
+      <div class="main-title"><h1 class="font-weight-bold">Dashboard</h1></div>
+      <div class="main-cards">
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="text-primary">Products</h2>
+            <span class="material-symbols-outlined text-blue">
+              inventory_2
+            </span>
+            <span class="text-primary font-weight-bold">122</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="text-primary">Purchase Orders</h2>
+            <span class="material-symbols-outlined text-orange">
+              add_shopping_cart
+            </span>
+            <span class="text-primary font-weight-bold">24</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="text-primary">Sales Orders</h2>
+            <span class="material-symbols-outlined text-green">
+              shopping_cart
+            </span>
+            <span class="text-primary font-weight-bold">132</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="charts">
+        <div class="charts-card">
+          <h3 class="charts-title">Top 3 products</h3>
+          <div id="bar-chart"></div>
+        </div>
+
+        <div class="charts-card">
+          <h3 class="charts-title">Purchase and Sales Orders</h3>
+          <div id="ear-chart"></div>
+        </div>
+      </section>
+    </main>
     <!-- Main End -->
 
+    <!-- Scripts -->
+    <!-- ApxCharts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.48.0/apexcharts.min.js"></script>
     <!-- Custom JS -->
     <script src="./script/main.js"></script>
   </body>
