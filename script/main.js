@@ -23,14 +23,14 @@ const close_sidebar = function () {
 var barChartOptions = {
   series: [
     {
-      data: [122, 132, 24, 20, 3],
+      data: [12, 9, 6, 4, 3],
     },
   ],
   chart: {
     type: "bar",
     height: 350,
   },
-  colors: ["#246dec", "#cc3c43", "#367952", "#4f35al"],
+  colors: ["#246dec", "#cc3c43", "#367952", "#ffbf00"],
   plotOptions: {
     bar: {
       distributed: true,
@@ -66,3 +66,70 @@ var barChart = new ApexCharts(
   barChartOptions
 );
 barChart.render();
+
+// Area chart
+
+var areaChartOptions = {
+  series: [
+    {
+      name: "Purchase Order",
+      // type: "area",
+      data: [44, 55, 31, 47, 31, 109, 100],
+    },
+    {
+      name: "Sales Orders",
+      // type: "line",
+      data: [55, 69, 45, 61, 43, 54, 41],
+    },
+  ],
+  chart: {
+    height: 350,
+    type: "area",
+  },
+  colors: ["#ffbf00", "#246dec"],
+  dataLabels: {
+    enabled: false,
+  },
+  stroke: {
+    curve: "smooth",
+  },
+  // fill: {
+  //   type: "solid",
+  //   opacity: [0.35, 1],
+  // },
+  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
+  markers: {
+    size: 0,
+  },
+  yaxis: [
+    {
+      title: {
+        text: "Purchase Orders",
+      },
+    },
+    {
+      opposite: true,
+      title: {
+        text: "Sales Orders",
+      },
+    },
+  ],
+  tooltip: {
+    shared: true,
+    intersect: false,
+    // y: {
+    //   formatter: function (y) {
+    //     if (typeof y !== "undefined") {
+    //       return y.toFixed(0) + " points";
+    //     }
+    //     return y;
+    //   },
+    // },
+  },
+};
+
+var areaChart = new ApexCharts(
+  document.querySelector("#area-chart"),
+  areaChartOptions
+);
+areaChart.render();
