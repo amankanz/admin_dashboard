@@ -1,3 +1,126 @@
+"use strict";
+
+// Data
+const account1 = {
+  owner: "Natukunda Pascal",
+  pin: 1111,
+  softcodesId: "psjsskskskskskskskskksksks",
+  permission: "Read Only",
+};
+
+const account2 = {
+  owner: "Kaneza Fred",
+  pin: 2222,
+  softcodesId: "ksjsskskskskskskskskksksks",
+  permission: "Read Only",
+};
+
+const account3 = {
+  owner: "Edson Smith",
+  pin: 3333,
+  softcodesId: "esjsskskskskskskskskksksks",
+  permission: "Read Only",
+};
+
+const account4 = {
+  owner: "Abdul Saidi",
+  pin: 4444,
+  softcodesId: "asjsskskskskskskskjdkkdkdksks",
+  permission: "Read Only",
+};
+
+const accounts = [account1, account2, account3, account4];
+
+// Elements
+const labelWelcome = document.querySelector(".welcome");
+const labelDate = document.querySelector(".date");
+const login_nav = document.querySelector("nav");
+const Dashboard_app = document.querySelector("body");
+const header = document.querySelector("header");
+const aside = document.querySelector("aside");
+const main_int = document.querySelector("main");
+const labelTimer = document.querySelector(".timer");
+
+const containerApp = document.querySelector(".app");
+const softcodes_ids = document.querySelector(".softcodes_ids");
+
+const btnLogin = document.querySelector(".login__btn");
+
+const inputLoginUsername = document.querySelector(".login__input--user");
+const inputLoginPin = document.querySelector(".login__input--pin");
+const logout_user = document.querySelector(".logout_user");
+const inputCloseUsername = document.querySelector(".form__input--user");
+const inputClosePin = document.querySelector(".form__input--pin");
+
+const create_user_name = function (accs) {
+  accs.forEach((acc) => {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(" ")
+      .map((name) => name[0])
+      .join("");
+    console.log(acc);
+  });
+};
+
+create_user_name(accounts);
+
+const display_softcodes_ids = function (accs) {
+  softcodes_ids.innerHTML = "";
+  accs.forEach((acc) => {
+    const html = `
+    <tr>
+        <td>${acc.owner}</td>
+        <td>${acc.softcodesId}</td>
+        <td>${acc.permission}</td>
+    </tr>
+    `;
+
+    softcodes_ids.insertAdjacentHTML("afterbegin", html);
+  });
+};
+
+let currentAccount;
+// Event Handler
+btnLogin.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    (acc) => acc.userName === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log("LOGIN");
+
+    // Display Dashboard
+    Dashboard_app.classList.add("grid-container");
+    header.style.opacity = aside.style.opacity = main_int.style.opacity = 1;
+    display_softcodes_ids(accounts);
+
+    // Clear INput fields
+    inputLoginUsername.value = "";
+    inputLoginPin.value = "";
+    inputLoginPin.blur();
+
+    // Hide the Nav
+    login_nav.classList.add("hide-nav-login");
+  } else {
+    labelWelcome.style.color = "red";
+    labelWelcome.textContent = `Incorrect Pin!`;
+  }
+});
+
+logout_user.addEventListener("click", function () {
+  // Hide Dashboard
+  Dashboard_app.classList.remove("grid-container");
+  header.style.opacity = aside.style.opacity = main_int.style.opacity = 0;
+
+  // Display login nav
+  login_nav.classList.remove("hide-nav-login");
+});
+
+///////////////////////////////////////////////////////
 // Sidebar Toggle
 let sidebar_open = false;
 const sidebar = document.getElementById("sidebar");

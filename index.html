@@ -19,7 +19,28 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./style/style.css" />
   </head>
-  <body class="grid-container">
+  <body>
+    <!-- NAVIGATION -->
+    <nav>
+      <p class="welcome">Log in to get started</p>
+      <!-- <img src="logo.png" alt="Logo"  /> -->
+      <p class="logo">SOFTCODES</p>
+      <form class="login">
+        <input
+          type="text"
+          placeholder="user"
+          class="login__input login__input--user"
+        />
+        <!-- In practice, use type="password" -->
+        <input
+          type="password"
+          placeholder="PIN"
+          maxlength="4"
+          class="login__input login__input--pin"
+        />
+        <button class="login__btn">&rarr;</button>
+      </form>
+    </nav>
     <!-- Header -->
     <header>
       <div class="menu-icon" onclick="open_sidebar()">
@@ -80,8 +101,9 @@
           <span class="material-symbols-outlined"> settings </span>
           Settings
         </li>
-        <li class="sidebar-list-item">
-          <span class="material-symbols-outlined"> logout </span> Logout
+        <li class="sidebar-list-item logout_user">
+          <span class="material-symbols-outlined"> logout </span>
+          Logout
         </li>
       </ul>
     </aside>
@@ -145,25 +167,10 @@
               <th>Permission</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="softcodes_ids">
             <tr>
               <td>Pascal</td>
               <td>dhdjdndjddjddjdjdjncfdvddgddhd</td>
-              <td>Read Only</td>
-            </tr>
-            <tr>
-              <td>Fred</td>
-              <td>fsvsfshssjmsjdkdkdmmdkekkdmddkd</td>
-              <td>Read Only</td>
-            </tr>
-            <tr>
-              <td>Adson</td>
-              <td>fsvsfshssjmsjdjkkkkkdmmdkekkdmddkd</td>
-              <td>Read Only</td>
-            </tr>
-            <tr>
-              <td>Abdul</td>
-              <td>fsvsfshbgsijkkkkkdmmdkekkdmddkd</td>
               <td>Read Only</td>
             </tr>
           </tbody>

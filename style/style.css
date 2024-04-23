@@ -71,6 +71,64 @@ body {
   height: 100vh;
 }
 
+/* ==== TOP NAV === */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.hide-nav-login {
+  display: none;
+}
+
+.welcome {
+  font-size: 1.5rem;
+  font-weight: 500;
+  /* color: var(--primary-color); */
+}
+
+.logo {
+  font-size: 2.5rem;
+  color: var(--main-color);
+}
+
+.login {
+  display: flex;
+}
+
+.login__input {
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  text-align: center;
+  width: 10rem;
+  border-radius: 5rem;
+  margin-right: 1rem;
+  color: var(--main-color);
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s;
+}
+
+.login__input:focus {
+  outline: none;
+  border: 1px solid var(--main-color);
+}
+
+.login__input::placeholder {
+  color: var(--bs-secondary);
+}
+
+.login__btn {
+  border: none;
+  background: none;
+  font-size: 2.2rem;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
 /* ============ Header ============== */
 header {
   grid-area: header;
@@ -81,6 +139,13 @@ header {
   justify-content: space-between;
   padding: 0 30px;
   box-shadow: 0 6px 7px -4px rgba(0, 0, 0, 0.2);
+}
+
+header,
+aside,
+main {
+  opacity: 0;
+  transition: all 1s;
 }
 
 header div > span {
